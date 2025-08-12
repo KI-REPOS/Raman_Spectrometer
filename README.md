@@ -1,6 +1,6 @@
 # RamanScope – Raman Spectrometer Control & Analysis Software
 
-![RamanScope Banner](images/application_preview.png)
+![RamanScope Banner](images/pixel.png)
 
 > A complete Windows application for controlling a CCD-based Raman spectrometer, performing wavelength calibration, visualizing spectra, and exporting data — all without needing a separate Python installation.
 
@@ -73,7 +73,7 @@ The software includes an interactive GUI built with PySide6 and integrates matpl
 
 | Pixel vs. Intensity | Wavelength vs. Intensity | Raman Shift vs. Intensity |
 |---------------------|--------------------------|---------------------------|
-| ![Pixel Graph](images/pixel vs intensity.png) | ![Wavelength Graph](images/wavelength vs intensity.png) | ![Raman Graph](images/raman shift vs intensity.png) |
+| ![Pixel Graph](images/pixel.png) | ![Wavelength Graph](images/wavelength.png) | ![Raman Graph](images/raman_shift.png) |
 
 ---
 
