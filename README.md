@@ -1,90 +1,81 @@
-# Raman Spectrometer GUI (PySide6)
+# RamanScope – Raman Spectrometer Control & Analysis Software
 
-## 📌 Overview
-This is a **PySide6-based desktop application** for operating a **CCD-based Raman Spectrometer** (tested with TCD1304 + STM32F401RE).
+![RamanScope Banner](images/application_preview.png)
 
-It provides:
-- Real-time spectrum acquisition
-- Wavelength calibration
-- Raman shift calculation
-- Interactive plotting
-- Data/image saving
-- File loading for review
+> A complete Windows application for controlling a CCD-based Raman spectrometer, performing wavelength calibration, visualizing spectra, and exporting data — all without needing a separate Python installation.
+
+---
+
+## 📥 Download
+[**⬇ Download the latest release here**](https://github.com/KI-REPOS/Raman_Spectrometer/releases)
 
 ---
 
 <details>
-<summary>⚙️ How It Works</summary>
+<summary>📖 Overview</summary>
 
-### 1. Hardware Communication
-- Connects to STM32 over **USB Serial (115200 baud)**.
-- Sends CCD parameters: SH period, ICG period, mode, averages.
-- Receives **3694 pixels × 16-bit** intensity data.
+RamanScope is designed to interface with an STM32-driven CCD Raman spectrometer.  
+It enables **real-time acquisition**, **calibration**, and **analysis** of Raman spectra.  
+The software includes an interactive GUI built with PySide6 and integrates matplotlib for dynamic plotting.
 
-### 2. Data Processing
-- Inverts intensity to show blocked-light dips as peaks.
-- **Pixel → Wavelength** conversion via quadratic fit:
-```bash
-λ = a·p² + b·p + c
-```
-- **Raman Shift** calculation:
-where λ₀ = excitation wavelength.
-
-### 3. Interactive Graphs
-- Pixel vs Intensity
-- Wavelength vs Intensity (calibrated)
-- Raman Shift vs Intensity (calibrated)
-- Zoom, pan, reset, theme toggle
-- Real-time X/Y cursor tracking
-
-### 4. Calibration
-- Add pixel–wavelength pairs manually.
-- Fits quadratic curve for mapping.
-- Shows error estimation & warnings.
-
-### 5. File Operations
-- **Upload** saved spectra (with/without wavelength/Raman data).
-- **Save Data** (CSV/TXT with metadata & calibration).
-- **Save Image** (PNG/SVG export).
 </details>
 
 ---
 
 <details>
-<summary>🖥️ Application Interface</summary>
+<summary>✨ Features</summary>
 
-1. **Acquisition Control Panel**
- - Connect / Disconnect spectrometer
- - Start / Stop acquisition
- - Mode: Single / Continuous
- - Set averaging count
+- **CCD Communication** – Connect via USB/Serial to STM32-based spectrometer.
+- **Two Acquisition Modes** – Single scan or continuous mode.
+- **Parameter Configuration** – Set SH period, ICG period, averages, and acquisition mode.
+- **Three Graph Types**:
+  - Pixel vs. Intensity
+  - Wavelength vs. Intensity (post-calibration)
+  - Raman Shift vs. Intensity
+- **Graph Interactivity** – Zoom, pan, cursor coordinate tracking.
+- **Wavelength Calibration** – Quadratic fit using known reference points.
+- **Raman Shift Calculation** – Automatic based on excitation wavelength.
+- **Data Management** – Save spectra as CSV/TXT or export images as PNG/SVG.
+- **Theme Support** – Light and dark modes.
 
-2. **CCD Settings**
- - SH Period & ICG Period inputs
- - Integration time calculator
-
-3. **Graph Tabs**
- - Pixel vs Intensity
- - Wavelength vs Intensity
- - Raman Shift vs Intensity
-
-4. **Bottom Controls**
- - Upload file
- - Select excitation wavelength
- - Theme toggle
- - Calibrate wavelength
- - Reset zoom
- - Save data
- - Save image
 </details>
 
 ---
 
 <details>
-<summary>🚀 Installation</summary>
+<summary>🖥️ System Requirements</summary>
 
-### Requirements
-- Python 3.9+
-- Install dependencies:
-```bash
-pip install PySide6 pyserial numpy matplotlib scipy
+- **OS**: Windows 10/11 (64-bit)
+- **Hardware**: STM32-based CCD Raman spectrometer
+- **Drivers**: Installed STM32 Virtual COM Port drivers
+- **USB Connection**: For spectrometer communication
+
+</details>
+
+---
+
+<details>
+<summary>🚀 How to Use</summary>
+
+1. Connect your spectrometer to the PC via USB.
+2. Launch the `RamanScope.exe` file.
+3. Click **Connect** to initialize the serial link.
+4. Configure acquisition parameters (SH, ICG, averages).
+5. Start acquisition and view spectra in real-time.
+6. Perform wavelength calibration if needed.
+7. Save data or export images for reports.
+
+</details>
+
+---
+
+## 📷 Preview Images
+
+| Pixel vs. Intensity | Wavelength vs. Intensity | Raman Shift vs. Intensity |
+|---------------------|--------------------------|---------------------------|
+| ![Pixel Graph](images/pixel vs intensity.png) | ![Wavelength Graph](images/wavelength vs intensity.png) | ![Raman Graph](images/raman shift vs intensity.png) |
+
+---
+
+## 💡 Author
+Developed by **KIRANSURYAKUMAR K** – [GitHub Profile](https://github.com/KI-REPOS)
